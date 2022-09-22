@@ -1,5 +1,4 @@
-**Krushak Odisha  
-Truth Finder Confidence Algorithm**
+## Truth Finder Confidence Algorithm
 
 1.  **<u>Introduction:</u>**
 
@@ -19,9 +18,9 @@ algorithm.
 
 The algorithm is based on these 4 premises:
 
-**Premise 1:** **Usually there is only one true fact (Value) for a
+**Premise 1:** Usually there is only one true fact (Value) for a
 property (Data Field) of an object (Farmer Record).  
-**We assume that there is only one true fact for a property *(data
+We assume that there is only one true fact for a property *(data
 field)* of an object *(farmer)*.
 
 *For example: There can only be 1 true value for name of a farmer.*
@@ -107,24 +106,18 @@ leading to unexpected errors
 E.g, If we have 10 matching sources and their t(w) is 0.99, then the
 product of (1-t(w)) will become 1<sup>-10</sup>
 
-> [<img src="./myMediaFolder/media/image8.gif"
-> style="width:2.53906in;height:0.25391in" />](https://latex-staging.easygenerator.com/eqneditor/editor.php?latex=%5Ctau(w)%3D-%5Cln%20(1-t(w))#0)
-> *(1)*
+<img src="./myMediaFolder/media/image8.gif"  width="300" height="25" />
 
 **𝞂(f): Unadjusted confidence score for a fact:** This is a logarithmic
 transformed version of unadjusted confidence s(f) again to prevent
 underflow
 
-[<img src="./myMediaFolder/media/image2.png"
-style="width:2.30697in;height:0.24284in" />](https://www.codecogs.com/eqnedit.php?latex=%5Csigma(f)%3D-%5Cln%20(1-s(f))#0)
-*(2*)
+<img src="./myMediaFolder/media/image2.png" width="300" height="25" />
 
 **𝞂\*(f): Adjusted confidence score for a fact:** This is a logarithmic
 transformed version of adjusted confidence s\*(f) to prevent underflow
 
-[<img src="./myMediaFolder/media/image6.png"
-style="width:2.56406in;height:0.2475in" />](https://www.codecogs.com/eqnedit.php?latex=%5Csigma%5E%7B*%7D(f)%3D-%5Cln%20(1-s%5E%7B*%7D(f))#0)
-*(3)*
+<img src="./myMediaFolder/media/image6.png" width="300" height="25" />
 
 **Ɣ : Damping factor:** This is a parameter to be provided to the model
 to account for lack of independence amongst sources. We will be
@@ -146,21 +139,15 @@ higher confidence score if source A says ‘Amana’ rather ‘Bob’*
 **<u>The confidence score can be calculated from the trustworthiness of
 each data sources as:</u>**
 
-[<img src="./myMediaFolder/media/image16.png"
-style="width:2.59784in;height:0.53841in" />](https://www.codecogs.com/eqnedit.php?latex=s_%7B0%7D%5E%7B*%7D(f)%3D%5Cfrac%7B1%7D%7B1%2Be%5E%7B%5Csigma(f)-%5Csum_%7Bf%5E%7B%5Cprime%7D%7D%20%5Csigma%5Cleft(f%5E%7B%5Cprime%7D%5Cright)%20%7D#0)
-*(4)*
+<img src="./myMediaFolder/media/image16.png"  width="300" height="50" />
 
 where,
 
-[<img src="./myMediaFolder/media/image15.png"
-style="width:1.61198in;height:0.36458in" />](https://www.codecogs.com/eqnedit.php?latex=%5Csigma(f)%3D%5Csum_%7Bw%20%5Cin%20W(f)%7D%20%5Ctau(w)#0)
-*(5)*
+<img src="./myMediaFolder/media/image15.png" width="300" height="50" />
 
 and,
 
-[<img src="./myMediaFolder/media/image8.gif"
-style="width:2.13981in;height:0.25in" />](https://latex-staging.easygenerator.com/eqneditor/editor.php?latex=%5Ctau(w)%3D-%5Cln%20(1-t(w))#0)
-*(1)*
+<img src="./myMediaFolder/media/image8.gif" width="300" height="25" />
 
 **<u>Illustrative Example for calculating confidence:</u>**
 
@@ -278,14 +265,14 @@ Repeating *<u>Step 2</u>* with the new t(w) values, we get :
 style="width:2.91667in;height:2.02083in" /><img src="./myMediaFolder/media/image1.png"
 style="width:3.17708in;height:1.91667in" />
 
-*<u>Image - 4.6</u> <u>Image - 4.7</u>*
+*<u>Image - 4.6</u> 
 
 And then calculating the new t(w) values , we get :
 
 <img src="./myMediaFolder/media/image3.png"
 style="width:3.23958in;height:0.70833in" />
 
-*<u>Image - 4.8</u>*
+*<u>Image - 4.7</u>*
 
 We must keep iterating this process until the t(w) value stops changing.
 *<u>Image - 4.8</u>* is showing the t(w) values for 10 iterations:
@@ -293,7 +280,7 @@ We must keep iterating this process until the t(w) value stops changing.
 <img src="./myMediaFolder/media/image10.png"
 style="width:3.26042in;height:3.03125in" />
 
-*<u>Image - 4.9</u>*
+*<u>Image - 4.8</u>*
 
 As we can see above, it starts with 0.5 for all sources and then keeps
 changing with every iteration. However the degree of change keeps
@@ -310,7 +297,7 @@ iterations’ t(w) values using Equation 4:
 style="width:2.91667in;height:2.02083in" /><img src="./myMediaFolder/media/image4.png"
 style="width:3.11458in;height:1.89583in" />
 
-*<u>Image - 4.10</u> <u>Image - 4.11</u>*
+*<u>Image - 4.9</u> 
 
 We can the calculate the KO values confidence by matching the KO values
 to the source:
@@ -318,82 +305,38 @@ to the source:
 <img src="./myMediaFolder/media/image12.png"
 style="width:5.76042in;height:2.01042in" />
 
-*<u>Image - 4.12</u>*
+*<u>Image - 4.10</u>*
 
-**<u>Annexure:</u>  
-**
+### Annexure:
 
-1.  **Why are we following the Truth Finder Algorithm to calculate the
-    > confidence level of our data points? Is there any precedence
-    > establishing that this is the best/ideal way to go about it?**
+1.  **Why are we following the Truth Finder Algorithm to calculate the confidence level of our data points? Is there any precedence establishing that this is the best/ideal way to go about it?**
 
-- The Truth Finder algorithm is a well-known research paper cited
-  > extensively in the data science world
-  > [<sup><u>\[1\]</u></sup>](https://ieeexplore.ieee.org/document/4415269/citations?tabFilter=papers#anchor-paper-citations-nonieee)
-  > including by Google for it’s Knowledge-based-Trust Algorithm
-  > [<sup><u>\[2\]</u></sup>](https://www.vldb.org/pvldb/vol8/p938-dong.pdf)
-  > which is Google’s patented method of carrying out
-  > truth-discovery[<sup><u>\[8\]</u></sup>](https://economictimes.indiatimes.com/magazines/panache/google-to-rank-websites-based-on-facts-not-links/articleshow/46429104.cms?from=mdr)
-  > to improve its search results. It’s based on the same iterative
-  > principles as Page-Rank but considering the reliability of websites
-  > instead of
-  > number/quality[<sup><u>\[3\]</u></sup>](https://en.wikipedia.org/wiki/Truth_discovery#Web-link_based).
+- The Truth Finder algorithm is a well-known research paper cited extensively in the data science world [<sup><u>\[1\]</u></sup>](https://ieeexplore.ieee.org/document/4415269/citations?tabFilter=papers#anchor-paper-citations-nonieee) including by Google for it’s Knowledge-based-Trust Algorithm [<sup><u>\[2\]</u></sup>](https://www.vldb.org/pvldb/vol8/p938-dong.pdf) which is Google’s patented method of carrying out truth-discovery[<sup><u>\[8\]</u></sup>](https://economictimes.indiatimes.com/magazines/panache/google-to-rank-websites-based-on-facts-not-links/articleshow/46429104.cms?from=mdr) to improve its search results. It’s based on the same iterative principles as Page-Rank but considering the reliability of websites instead of number/quality[<sup><u>\[3\]</u></sup>](https://en.wikipedia.org/wiki/Truth_discovery#Web-link_based).
 
-- Model is completely data driven and does not require estimating any
-  > accuracy parameters
+- Model is completely data driven and does not require estimating any accuracy parameters
 
-- Model is relatively simple to implement, runs quickly and does not
-  > require expensive infra
+- Model is relatively simple to implement, runs quickly and does not require expensive infra
 
-- Model works well with low number of data sources (most truth discovery
-  > models are built for websites and often scrape from 1000’s of
-  > websites to check)
+- Model works well with low number of data sources (most truth discovery models are built for websites and often scrape from 1000’s of websites to check)
 
-- The model has been implemented previously as open source code in
-  > Java/R
-  > [<sup><u>\[4\]</u></sup>](https://rdrr.io/github/rodrigowang/truthfinder/src/R/truthfinder.R)
-  > [<sup><u>\[5\]</u></sup>](https://github.com/LaureBerti/Truth_Discovery_Comparative_Analysis)
+- The model has been implemented previously as open source code in Java/R [<sup><u>\[4\]</u></sup>](https://rdrr.io/github/rodrigowang/truthfinder/src/R/truthfinder.R) [<sup><u>\[5\]</u></sup>](https://github.com/LaureBerti/Truth_Discovery_Comparative_Analysis)
 
-2.  **Where has this model been implemented previously? Can we get some
-    > test results or evidence of success for this model?**
+2.  **Where has this model been implemented previously? Can we get some test results or evidence of success for this model?**
 
-- The Truth finder consistently displays good results for truth
-  > discovery on real world data sets: In this
-  > work[<sup><u>\[6\]</u></sup>](https://arxiv.org/pdf/1409.6428), it
-  > was tested on the following datasets:
+The Truth finder consistently displays good results for truth discovery on real world data sets: In this work[<sup><u>\[6\]</u></sup>](https://arxiv.org/pdf/1409.6428), it was tested on the following datasets:
 
-  - **The AbeBooks data set** : It’s a comparison of author details for
-    > computer science books extracted from AbeBooks websites in 2007 It
-    > consisted of 33,235 claims on the author names of 1,263 books by
-    > 877 book seller sources.
+ - **The AbeBooks data set** : It’s a comparison of author details for computer science books extracted from AbeBooks websites in 2007 It consisted of 33,235 claims on the author names of 1,263 books by 877 book seller sources.
 
-> The ‘true value’ was available for 100 randomly sampled books for
-> which the book covers were manually verified by the authors.
->
-> The Truth finder algorithm had an accuracy of 94% which was 2nd best
-> amongst algorithms compared with the least computation time
+The ‘true value’ was available for 100 randomly sampled books for which the book covers were manually verified by the authors. The Truth finder algorithm had an accuracy of 94% which was 2nd best amongst algorithms compared with the least computation time
 
-- **Weather data set :** The Weather data set consists of 426,360 claims
-  > from 18 sources on the Web for 5 properties (temperature, humidity
-  > etc) on hourly weather for 49 US cities between January and
-  > February 2010. ‘True value’, was deemed to be the AccuWeather
-  > website values which were available in 75% of the cases
+  - **Weather data set :** The Weather data set consists of 426,360 claims from 18 sources on the Web for 5 properties (temperature, humidity etc) on hourly weather for 49 US cities between January and February 2010. ‘True value’, was deemed to be the AccuWeather website values which were available in 75% of the cases
 
-> Truth Finder had an accuracy of 86% which was the best amongst all
-> algorithms compared with the least computation time
+ Truth Finder had an accuracy of 86% which was the best amongst all algorithms compared with the least computation time
 
-- **Biography data set :** The Weather data set consists of 9 biography
-  > details (father name, mother name, age etc) extracted from Wikipedia
-  > with 10,862,648 claims over 19,606 people and 9 attributes from
-  > 771,132 online sources
+  - **Biography data set :** The Weather data set consists of 9 biography details (father name, mother name, age etc) extracted from Wikipedia with 10,862,648 claims over 19,606 people and 9 attributes from 771,132 online sources
 
-> Truth Finder had an accuracy of 90% which was the 2nd best amongst all
-> algorithms compared with the least computation time
+ Truth Finder had an accuracy of 90% which was the 2nd best amongst all algorithms compared with the least computation time
 
-- **Biography data set :** The Population data set consists of 49,955
-  > claims on city population extracted from Wikipedia edits from 4,264
-  > sources. The ‘true value’ was considered to be the official US
-  > census data.
+  - **Biography data set :** The Population data set consists of 49,955 claims on city population extracted from Wikipedia edits from 4,264 sources. The ‘true value’ was considered to be the official US census data.
 
-> Truth Finder had an accuracy of 87% which was the 2nd best amongst all
-> the algorithms
+ Truth Finder had an accuracy of 87% which was the 2nd best amongst all the algorithms
